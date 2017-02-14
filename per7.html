@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <style>
-#count1 {width: 20px;}
-.checkbox {background: red;}
-.row {padding: 2px;}
+#count1 {width: 2em; margin: .25em; padding: .5em;}
+
+td {padding-right: 10em;}
+
+btn.#plus1 { background-color: #efffcf; }
+btn #minus1 { background-color: #ffefff; }
+
+.odd { background-color: #fff; }
+.even { background-color: lightblue; }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -19,6 +25,7 @@
 
 
 <body ng-app="myApp" ng-controller="todoCtrl">
+<div class="container">
 <h2>Student Check List</h2>
 
 <form ng-submit="todoAdd()">
@@ -26,26 +33,25 @@
     <input type="submit" value="Add New">
 </form>
 
-<class = "container">
-
-<div ng-repeat="x in todoList">
-<div class="row">
-  <div class="col-sm-3 col-md-4 col-lg-2">
+<table class="table">
+<tr ng-repeat="x in todoList" ng-class-odd="'odd'" ng-class-even="'even'">
+<td>
     <input type="checkbox" ng-model="x.done"> 
     <span ng-bind="x.todoText"></span>
     <span ng-bind="x.Last"></span>
-    </div>
-
-  <div class="col-sm-9 col-md-8 col-lg-2">
-    <button class="btn btn-success" ng-click="count = count + 1">+</button>
+</td>
+<td>
+    <button id="plus1" class="btn btn-primary" ng-click="count = count + 1">+</button>
     <input id="count1" type="text" ng-model="count" placeholder="0">
-    <button class="btn btn-danger" ng-click="count = count - 1">-</button>
-  </div>
-
+    <button id="minus1" class="btn btn-info" ng-click="count = count - 1">-</button>
+</td>
+</tr>
 </div><!-- ng-repeat -->
-</div><!-- row -->
+</table>
 
+<!--
 <p><button ng-click="remove()">Remove marked</button></p>
+-->
 
 <script>
 //http://www.convertcsv.com/csv-to-json.htm
@@ -193,14 +199,10 @@ app.controller('todoCtrl', function($scope) {
     };
 });
 </script>
-<label class="custom-control custom-checkbox">
-  <input type="checkbox" class="custom-control-input">
-  <span class="custom-control-indicator"></span>
-  <span class="custom-control-description">Check this custom checkbox</span>
-</label>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-</class><!--Container -->
+</div><!--Container -->
 </body>
 </html>
