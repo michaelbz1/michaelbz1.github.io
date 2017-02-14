@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<style>
+#count1 {width: 20px;}
+.checkbox {background: red;}
+.row {padding: 2px;}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+<body ng-app="myApp" ng-controller="todoCtrl">
+<h2>Student Check List</h2>
+
+<form ng-submit="todoAdd()">
+    <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+    <input type="submit" value="Add New">
+</form>
+
+<class = "container">
+
+<div ng-repeat="x in todoList">
+<div class="row">
+  <div class="col-sm-3 col-md-4 col-lg-2">
+    <input type="checkbox" ng-model="x.done"> 
+    <span ng-bind="x.todoText"></span>
+    <span ng-bind="x.Last"></span>
+    </div>
+
+  <div class="col-sm-9 col-md-8 col-lg-2">
+    <button class="btn btn-success" ng-click="count = count + 1">+</button>
+    <input id="count1" type="text" ng-model="count" placeholder="0">
+    <button class="btn btn-danger" ng-click="count = count - 1">-</button>
+  </div>
+
+</div><!-- ng-repeat -->
+</div><!-- row -->
+
+<p><button ng-click="remove()">Remove marked</button></p>
+
+<script>
+//http://www.convertcsv.com/csv-to-json.htm
+var app = angular.module('myApp', []); 
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [
+ {
+   "todoText": "A'mayah",
+   "Last": "Minnis",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Ashanti",
+   "Last": "Farr",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Cera",
+   "Last": "Cole",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Charntel",
+   "Last": "Anokye",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Daimya",
+   "Last": "Butler",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Elizabeth",
+   "Last": "Coyotl-Osorio",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Helina",
+   "Last": "Minilik",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Isabella",
+   "Last": "Jeronimo-Lemus",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "JoHanna",
+   "Last": "Blackburn",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Kasey",
+   "Last": "Dunmire",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Kenia",
+   "Last": "Posadas",
+   "FIELD3": "Lemus"
+ },
+ {
+   "todoText": "Kia",
+   "Last": "McCloud",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Kyra",
+   "Last": "Ogboko",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "La'Zhey",
+   "Last": "Sanders",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Maleah",
+   "Last": "Witcher",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Mercy",
+   "Last": "Ayegbusi",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Mikay'la",
+   "Last": "Bordley",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Mumtaz",
+   "Last": "Hirsi",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Nevaeh",
+   "Last": "Dean",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Phoenix",
+   "Last": "Gamble",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Riley",
+   "Last": "Allar",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Sa'mya",
+   "Last": "Baker",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Seynabou",
+   "Last": "Sall",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Sotera",
+   "Last": "Craddolph",
+   "FIELD3": ""
+ },
+ {
+   "todoText": "Tyesha",
+   "Last": "Western",
+   "FIELD3": ""
+ }
+];
+
+    $scope.todoAdd = function() {
+        $scope.todoList.push({todoText:$scope.todoInput, Last:$scope.todoInput, done:false});
+        $scope.todoInput = "";
+    };
+
+    $scope.remove = function() {
+        var oldList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.todoList.push(x);
+        });
+    };
+});
+</script>
+<label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input">
+  <span class="custom-control-indicator"></span>
+  <span class="custom-control-description">Check this custom checkbox</span>
+</label>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</class><!--Container -->
+</body>
+</html>
