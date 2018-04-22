@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <style>
-#count1 {width: 2em; margin: .25em; padding: .5em;}
+body {padding: 0px; margin: 0px;}
+#count1 {font-size: 22px; width: 3em; margin: .25em; padding-left: 4px; padding-right:  4px;}
 
 td {padding-right: 10em;}
-span {font-size: 22px;}
+span {font-size: 22px; }
 
 btn.#plus1 { background-color: #efffcf; }
-btn #minus1 { background-color: #ffefff; }
+btn.#minus1 { background-color: #ffefff; }
 
 .odd { background-color: #fff; }
 .even { background-color: lightblue; }
@@ -25,20 +26,20 @@ btn #minus1 { background-color: #ffefff; }
 
 
 
-<body ng-app="myApp" ng-controller="todoCtrl">
+<body ng-app="myApp" ng-controller="studentCtrl">
 <div class="container-fluid">
 <h2>Student Check List</h2>
 
-<form ng-submit="todoAdd()">
-    <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+<form ng-submit="studentAdd()">
+    <input type="text" ng-model="studentInput" size="50" placeholder="Add New">
     <input type="submit" value="Add New">
 </form>
 
 <table class="table">
-<tr ng-repeat="x in todoList" ng-class-odd="'odd'" ng-class-even="'even'">
+<tr ng-repeat="x in studentList" ng-class-odd="'odd'" ng-class-even="'even'">
 <td>
     <input type="checkbox" ng-model="x.done"> 
-    <span ng-bind="x.todoText"></span><!-- Firstname-->
+    <span ng-bind="x.studentText"></span><!-- Firstname-->
     <span ng-bind="x.Last"></span><!-- Lastname-->
 </td>
 <td>
@@ -46,51 +47,7 @@ btn #minus1 { background-color: #ffefff; }
     <input id="count1" type="text" ng-model="count" placeholder="0">
     <button id="minus1" class="btn btn-info" ng-click="count = count - 1">-</button>
 </td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
+
 
 </tr>
 </div><!-- ng-repeat -->
@@ -103,145 +60,145 @@ btn #minus1 { background-color: #ffefff; }
 <script>
 //http://www.convertcsv.com/csv-to-json.htm
 var app = angular.module('myApp', []); 
-app.controller('todoCtrl', function($scope) {
-    $scope.todoList = [
+app.controller('studentCtrl', function($scope) {
+    $scope.studentList = [
  {
-   "todoText": "A'mayah",
+   "studentText": "A'mayah",
    "Last": "Minnis",
    "FIELD3": ""
  },
  {
-   "todoText": "Ashanti",
+   "studentText": "Ashanti",
    "Last": "Farr",
    "FIELD3": ""
  },
  {
-   "todoText": "Cera",
+   "studentText": "Cera",
    "Last": "Cole",
    "FIELD3": ""
  },
  {
-   "todoText": "Charntel",
+   "studentText": "Charntel",
    "Last": "Anokye",
    "FIELD3": ""
  },
  {
-   "todoText": "Daimya",
+   "studentText": "Daimya",
    "Last": "Butler",
    "FIELD3": ""
  },
  {
-   "todoText": "Elizabeth",
+   "studentText": "Elizabeth",
    "Last": "Coyotl-Osorio",
    "FIELD3": ""
  },
  {
-   "todoText": "Helina",
+   "studentText": "Helina",
    "Last": "Minilik",
    "FIELD3": ""
  },
  {
-   "todoText": "Isabella",
+   "studentText": "Isabella",
    "Last": "Jeronimo-Lemus",
    "FIELD3": ""
  },
  {
-   "todoText": "JoHanna",
+   "studentText": "JoHanna",
    "Last": "Blackburn",
    "FIELD3": ""
  },
  {
-   "todoText": "Kasey",
+   "studentText": "Kasey",
    "Last": "Dunmire",
    "FIELD3": ""
  },
  {
-   "todoText": "Kenia",
+   "studentText": "Kenia",
    "Last": "Posadas",
    "FIELD3": "Lemus"
  },
  {
-   "todoText": "Kia",
+   "studentText": "Kia",
    "Last": "McCloud",
    "FIELD3": ""
  },
  {
-   "todoText": "Kyra",
+   "studentText": "Kyra",
    "Last": "Ogboko",
    "FIELD3": ""
  },
  {
-   "todoText": "La'Zhey",
+   "studentText": "La'Zhey",
    "Last": "Sanders",
    "FIELD3": ""
  },
  {
-   "todoText": "Maleah",
+   "studentText": "Maleah",
    "Last": "Witcher",
    "FIELD3": ""
  },
  {
-   "todoText": "Mercy",
+   "studentText": "Mercy",
    "Last": "Ayegbusi",
    "FIELD3": ""
  },
  {
-   "todoText": "Mikay'la",
+   "studentText": "Mikay'la",
    "Last": "Bordley",
    "FIELD3": ""
  },
  {
-   "todoText": "Mumtaz",
+   "studentText": "Mumtaz",
    "Last": "Hirsi",
    "FIELD3": ""
  },
  {
-   "todoText": "Nevaeh",
+   "studentText": "Nevaeh",
    "Last": "Dean",
    "FIELD3": ""
  },
  {
-   "todoText": "Phoenix",
+   "studentText": "Phoenix",
    "Last": "Gamble",
    "FIELD3": ""
  },
  {
-   "todoText": "Riley",
+   "studentText": "Riley",
    "Last": "Allar",
    "FIELD3": ""
  },
  {
-   "todoText": "Sa'mya",
+   "studentText": "Sa'mya",
    "Last": "Baker",
    "FIELD3": ""
  },
  {
-   "todoText": "Seynabou",
+   "studentText": "Seynabou",
    "Last": "Sall",
    "FIELD3": ""
  },
  {
-   "todoText": "Sotera",
+   "studentText": "Sotera",
    "Last": "Craddolph",
    "FIELD3": ""
  },
  {
-   "todoText": "Tyesha",
+   "studentText": "Tyesha",
    "Last": "Western",
    "FIELD3": ""
  }
 ];
 
-    $scope.todoAdd = function() {
-        $scope.todoList.push({todoText:$scope.todoInput, Last:$scope.todoInput, done:false});
-        $scope.todoInput = "";
+    $scope.studentAdd = function() {
+        $scope.studentList.push({studentText:$scope.studentInput, Last:$scope.studentInput, done:false});
+        $scope.studentInput = "";
     };
 
     $scope.remove = function() {
-        var oldList = $scope.todoList;
-        $scope.todoList = [];
+        var oldList = $scope.studentList;
+        $scope.studentList = [];
         angular.forEach(oldList, function(x) {
-            if (!x.done) $scope.todoList.push(x);
+            if (!x.done) $scope.studentList.push(x);
         });
     };
 });
