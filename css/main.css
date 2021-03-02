@@ -183,16 +183,15 @@ body > section,
 	padding: 0;
 }
 
-#slider .carousel .carousel-item {
-  height: 500px;
+.carousel .item {
+  height: 300px;
 }
 
-.carousel-item img {
+.item img {
     position: absolute;
-    object-fit:cover;
     top: 0;
     left: 0;
-    min-height: 500px;
+    min-height: 300px;
 }
 
 .carousel-caption {
