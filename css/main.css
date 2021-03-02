@@ -183,7 +183,7 @@ body > section,
 	padding: 0;
 }
 
-.carousel .carousel-item {
+#slider .carousel .carousel-item {
   height: 500px;
 }
 
