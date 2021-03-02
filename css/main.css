@@ -183,10 +183,6 @@ body > section,
 	padding: 0;
 }
 
-#slider .carousel-inner .item {
-  background-size: cover;
-}
-
 .carousel .carousel-item {
   height: 500px;
 }
